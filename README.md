@@ -9,8 +9,6 @@
 ## Description de l'applicaiton
 ***Selu*** est une application mobile permettant aux jeunes étudiants de redonner vie à tous leurs anciens matériels scolaires.
 
-<br>
-
 ## Membres de l'équipe 05
 - [`Steven Tran`](https://gitlab.com/steven_tran)
 - [`Nathan Lamy`](https://gitlab.com/NatLyy)
@@ -18,15 +16,11 @@
 - [`Salah Eddine Ouamalich`](https://gitlab.com/Salah_Ouamalich)
 - [`Yao Nathanaël Kékéli Kounakou`](https://gitlab.com/yaokounakou)
 
-<br>
-
 <!-- ## Installation
 Text
 ```bash
 cd projet-crtp | bash
 ```
-
-<br>
 
 ## Table des matières
 - [Installation](#installation) -->

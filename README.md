@@ -1,9 +1,6 @@
-<br>
-<br>
 <p align="center">
   <img src="https://bit.ly/3xltPRY" alt="Logo" width=auto>
 </p>
-<br>
 
 # Selu
 ## Description de l'applicaiton

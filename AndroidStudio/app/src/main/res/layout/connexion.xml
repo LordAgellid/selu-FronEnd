@@ -35,15 +35,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="275dp"
-        android:layout_height="55dp"
-        android:text="Continuer avec Google"
-        android:textAllCaps="false"
-        app:icon="@drawable/ic_google__g__logo"
-        app:iconTintMode="multiply"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="205dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

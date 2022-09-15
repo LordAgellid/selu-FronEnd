@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Selu</string>
+    <string name="forgotpass"> <u> Mot de passe oublié?</u></string>
+    <string name="createAccount"><b><u> En créer un maintenant</u></b></string>
 </resources>

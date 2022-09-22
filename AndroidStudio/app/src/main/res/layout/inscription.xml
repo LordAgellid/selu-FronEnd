@@ -260,7 +260,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_inscription" />
 
         <TextView
-            android:id="@+id/lien_vers_connexion"
+            android:id="@+id/lienVersConnexion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

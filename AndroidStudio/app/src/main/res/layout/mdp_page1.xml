@@ -8,11 +8,11 @@
 
 
     <EditText
-        android:id="@+id/nvxMdp1"
+        android:id="@+id/name_input"
         android:layout_width="275dp"
         android:layout_height="55dp"
         android:layout_weight="1"
-        android:background="@drawable/round_rect_shape"
+        android:background="@drawable/round_rectangle_shape"
         android:backgroundTint="#FFFEFE"
         android:drawableLeft="@drawable/icon_temp"
         android:drawablePadding="11dp"
@@ -55,7 +55,7 @@
         android:layout_width="200dp"
         android:layout_height="59dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/round_rect_shape"
+        android:background="@drawable/round_rectangle_shape"
         android:fontFamily="@font/inter"
         android:letterSpacing="0.0005"
         android:text="ENVOYER"
@@ -70,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nvxMdp1"
+        app:layout_constraintTop_toBottomOf="@+id/name_input"
         app:layout_constraintVertical_bias="0.636" />
 
     <TextView

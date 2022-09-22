@@ -1,13 +1,22 @@
 <resources>
     <string name="app_name">Selu</string>
-    <string name="forgotpass"> <u> Mot de passe oublié?</u></string>
-    <string name="createAccount"><b><u> En créer un maintenant</u></b></string>
+    <string name="bienvenue">Bienvenue</string>
+    <string name="connectez_vous_a_votre_compte">Connectez-vous à votre compte</string>
+    <string name="continuer_avec_google">Continuer avec Google</string>
+    <string name="ou">OU</string>
+    <string name="adresse_courriel">Adresse courriel</string>
+    <string name="mot_de_passe_placeholder">••••••••••••</string>
+    <string name="connexion">Connexion</string>
+    <string name="vous_n_avez_pas_de_compte_selu">Vous n’avez pas de compte Selu?</string>
+    <string name="en_creer_un_maintenant"><u>En créer un maintenant</u></string>
+
     <string name="nouveau">Nouveau</string>
     <string name="creez_votre_compte_selu">Créez votre compte Selu</string>
-    <string name="mot_de_passe">Mot de passe</string>
     <string name="nom">Nom</string>
-    <string name="s_inscrire">S\'inscrire</string>
-    <string name="confirmer_le_mot_de_passe">Confirmer le mot de passe</string>
     <string name="prenom">Prénom</string>
-    <string name="adresse_courriel">Adresse courriel</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="confirmer_mot_de_passe">Confirmer mot de passe</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="vous_detenez_deja_un_compte_selu">Vous détenez déjà un compte Selu?</string>
+    <string name="connectez_vous"><u>Connectez-vous</u></string>
 </resources>

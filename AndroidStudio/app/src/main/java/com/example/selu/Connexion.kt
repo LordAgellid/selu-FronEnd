@@ -1,16 +1,29 @@
 package com.example.selu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import android.widget.TextView
+import android.widget.Toast
 
 class Connexion : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Handle the splash screen transition.
-        Thread.sleep(2500)
-        installSplashScreen()
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connexion)
+
+        val lienVersInscription : TextView= findViewById(R.id.lienVersInscription)
+        lienVersInscription.setOnClickListener() {
+            redirectToConnexion()
+        }
+    }
+
+    private fun redirectToConnexion() {
+        val intent = Intent(this, Inscription::class.java)
+        val text = "Redirection vers la page d'inscription"
+        val duration = Toast.LENGTH_SHORT
+
+        startActivity(intent)
+        val toast = Toast.makeText(applicationContext, text, duration)
+        toast.show()
     }
 }

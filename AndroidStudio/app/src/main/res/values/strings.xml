@@ -19,4 +19,7 @@
     <string name="s_inscrire">S\'inscrire</string>
     <string name="vous_detenez_deja_un_compte_selu">Vous détenez déjà un compte Selu?</string>
     <string name="connectez_vous"><u>Connectez-vous</u></string>
+    <string name="mot_de_passe_oublie">Mot de passe oublié</string>
+    <string name="mot_de_passe_oublie_text_section1">Entrez votre adresse courriel. Nous vous enverrons un code de vérification.</string>
+    <string name="envoyer">ENVOYER</string>
 </resources>

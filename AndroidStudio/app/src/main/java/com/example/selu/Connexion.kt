@@ -14,17 +14,17 @@ class Connexion : AppCompatActivity() {
 
         val lienVersInscription : TextView= findViewById(R.id.lienVersInscription)
         lienVersInscription.setOnClickListener() {
-            redirectToConnexion()
+            redirectToInscription()
         }
     }
 
-    private fun redirectToConnexion() {
+    private fun redirectToInscription() {
         val intent = Intent(this, Inscription::class.java)
         val text = "Redirection vers la page d'inscription"
-        val duration = Toast.LENGTH_SHORT
+        /*val duration = Toast.LENGTH_SHORT
 
         startActivity(intent)
         val toast = Toast.makeText(applicationContext, text, duration)
-        toast.show()
+        toast.show()*/
     }
 }

@@ -22,4 +22,7 @@
     <string name="mot_de_passe_oublie">Mot de passe oublié</string>
     <string name="mot_de_passe_oublie_text_section1">Entrez votre adresse courriel. Nous vous enverrons un code de vérification.</string>
     <string name="envoyer">ENVOYER</string>
+    <string name="r_initialiser">RÉINITIALISER</string>
+    <string name="confirmer_mot_de_passe1">Confirmer mot de passe</string>
+    <string name="mot_de_passe1">Mot de passe</string>
 </resources>

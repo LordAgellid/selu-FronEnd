@@ -4,6 +4,7 @@
     package="com.example.selu" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,13 +18,13 @@
         android:theme="@style/Theme.Selu"
         tools:targetApi="31" >
         <activity
-            android:name=".Page3_ReinitialisationMotDePasse"
+            android:name=".Page3ReinitialisationMotDePasse"
             android:exported="false" />
         <activity
-            android:name=".Page2_VerificationCode"
+            android:name=".Page2VerificationCode"
             android:exported="false" />
         <activity
-            android:name=".Page1_EnvoiCodeDeVerification"
+            android:name=".Page1EnvoiCodeDeVerification"
             android:exported="false" />
         <activity
             android:name=".Inscription"

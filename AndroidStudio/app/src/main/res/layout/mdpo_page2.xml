@@ -82,7 +82,7 @@
             android:fontFamily="@font/inter"
             android:hint="@string/code"
             android:importantForAutofill="no"
-            android:inputType="text|textEmailAddress"
+            android:inputType="number"
             android:letterSpacing="0.0005"
             android:paddingLeft="16dp"
             android:paddingTop="14dp"

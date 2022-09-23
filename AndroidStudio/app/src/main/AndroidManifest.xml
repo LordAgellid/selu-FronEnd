@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.selu" >
+    package="com.example.selu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,26 +12,29 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Selu"
-        tools:targetApi="31" >
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
         <activity
-            android:name=".Page3_ReinitialisationMotDePasse"
+            android:name=".PageProfil"
             android:exported="false" />
         <activity
-            android:name=".Page2_VerificationCode"
+            android:name=".Page3ReinitialisationMotDePasse"
             android:exported="false" />
         <activity
-            android:name=".Page1_EnvoiCodeDeVerification"
+            android:name=".Page2VerificationCode"
+            android:exported="false" />
+        <activity
+            android:name=".Page1EnvoiCodeDeVerification"
             android:exported="false" />
         <activity
             android:name=".Inscription"
             android:exported="false" />
         <activity
             android:name=".Connexion"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

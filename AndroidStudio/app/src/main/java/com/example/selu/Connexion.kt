@@ -3,6 +3,8 @@ package com.example.selu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
@@ -27,6 +29,11 @@ class Connexion : AppCompatActivity() {
             redirectToInscription()
         }
     }
+//
+//    private fun redirectToInscription() {
+//        val intent = Intent(this, Inscription::class.java)
+//        startActivity(intent)
+//    }
 
     private fun redirectToMotDePasseOublie() {
         val intent = Intent(this, Page1_EnvoiCodeDeVerification::class.java)

@@ -7,126 +7,128 @@
     android:background="@color/green_jewel">
 
 
+    <ImageView
+        android:id="@+id/flecheDeRetour2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="54dp"
+        android:contentDescription="@string/fleche_de_retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/left_white_arrow" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="202dp"
-            android:layout_height="219dp"
+            android:id="@+id/headline_motDePasseOublie"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
-            android:text="Mot de passe oublié"
+            android:text="@string/mdpo_headline"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="60sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="198dp"
-            android:layout_height="59dp"
+            android:id="@+id/mdpo_page2_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/inter"
-            android:text="Plus qu’un petit pas. Veuillez entrer votre nouveau mot de passe."
+            android:text="@string/mot_de_passe_oublie_text_section2"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/headline_motDePasseOublie" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/middle1"
+        android:id="@+id/middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top">
 
         <EditText
-            android:id="@+id/nvxMdp1"
+            android:id="@+id/code_input"
             android:layout_width="275dp"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/round_rectangle_shape"
-            android:backgroundTint="#FFFEFE"
-            android:drawableLeft="@drawable/icon_temp"
-            android:drawablePadding="11dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/inputs_icon"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/inter"
-            android:hint="@string/mot_de_passe1"
-            android:inputType="text|textPassword|textEmailAddress"
+            android:hint="@string/code"
+            android:importantForAutofill="no"
+            android:inputType="text|textEmailAddress"
             android:letterSpacing="0.0005"
             android:paddingLeft="16dp"
+            android:paddingTop="14dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="14dp"
             android:selectAllOnFocus="false"
             android:singleLine="false"
             android:text=""
             android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textColorHint="@color/green_jewel"
+            android:textColor="@color/green_jewel"
+            android:textColorHint="@color/gum_leaf"
             android:textSize="16sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:ignore="RtlHardcoded,TextContrastCheck" />
 
-        <EditText
-            android:id="@+id/nvxMdp2"
-            android:layout_width="275dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/round_rectangle_shape"
-            android:backgroundTint="#FFFEFE"
-            android:drawableLeft="@drawable/icon_temp"
-            android:drawablePadding="11dp"
-            android:fontFamily="@font/inter"
-            android:hint="@string/confirmer_mot_de_passe1"
-            android:inputType="text|textPassword|textEmailAddress"
-            android:letterSpacing="0.0005"
-            android:paddingLeft="16dp"
-            android:selectAllOnFocus="false"
-            android:singleLine="false"
-            android:text=""
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textColorHint="@color/green_jewel"
-            android:textSize="16sp"
-            android:textStyle="normal"
+        <TextView
+            android:id="@+id/lienRenvoiCodeVerification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/renvoyer_le_code"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nvxMdp1" />
+            app:layout_constraintTop_toBottomOf="@+id/code_input" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="77dp"
         android:layout_marginBottom="125dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/middle1">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnsendModif"
+            android:id="@+id/btn_verificationCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_rectangle_shape"
@@ -136,12 +138,12 @@
             android:paddingTop="10dp"
             android:paddingRight="55dp"
             android:paddingBottom="10dp"
-            android:text="@string/r_initialiser"
+            android:text="@string/verifier"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/green_jewel"
             android:textSize="16sp"
-            app:backgroundTint="#FFFFFF"
+            app:backgroundTint="@color/white"
             app:cornerRadius="12dp"
             app:iconGravity="textStart"
             app:iconTintMode="multiply"
@@ -150,4 +152,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

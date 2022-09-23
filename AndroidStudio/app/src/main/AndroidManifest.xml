@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.selu">
+    package="com.example.selu" >
 
-    <uses-permission android:name="android.permission.INTERNET" />/
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Selu"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".Page3_ReinitialisationMotDePasse"
+            android:exported="false" />
+        <activity
+            android:name=".Page2_VerificationCode"
+            android:exported="false" />
+        <activity
+            android:name=".Page1_EnvoiCodeDeVerification"
+            android:exported="false" />
         <activity
             android:name=".Inscription"
             android:exported="false" />
         <activity
             android:name=".Connexion"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

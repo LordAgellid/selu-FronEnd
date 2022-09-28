@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -16,17 +17,41 @@ class Page1EnvoiCodeDeVerification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mdpo_page1)
 
+
+
         // Flèche de retour vers la page de connexion
         val flecheDeRetour1 = findViewById<ImageView>(R.id.flecheDeRetour1)
-        flecheDeRetour1.setOnClickListener() {
+        flecheDeRetour1.setOnClickListener {
             retourPrecedentePage()
         }
 
         //Lien de redirection vers la vérification de code
         val btnEnvoiCodeVerification= findViewById<TextView>(R.id.btn_envoiCodeVerification)
         btnEnvoiCodeVerification.setOnClickListener {
-            val courrielInput = (findViewById<EditText>(R.id.courriel_input).text).toString()
-            envoyerCodeDeVerification(courrielInput)
+            val courrielInput = findViewById<EditText>(R.id.courriel_input)
+            //Regex pour l'email
+            val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
+
+            //Variable de validation
+            var valide : Boolean = false
+
+            //Messages d'erreurs
+            if (courrielInput.text.isEmpty()) {
+                courrielInput.error = "Veuillez entrer votre courriel"
+                valide = false
+            } else if (regexEmail.matches(courrielInput.text)) {
+                    valide = true
+            } else {
+                courrielInput.error = "Veuillez entrer un courriel valide , il doit contenir un @ & un ."
+                valide = false
+            }
+
+            //Validation & Envoi
+            if (valide) {
+                envoyerCodeDeVerification(courrielInput.text.toString())
+            } else {
+                Toast.makeText(this, "Veuillez entrez votre adresse courriel.", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -21,21 +22,56 @@ class Connexion : AppCompatActivity() {
 
         //Lien de redirection vers la page de mot de passe oublié
         val lienVersMdpOublie= findViewById<TextView>(R.id.lienVersMdpOublie)
-        lienVersMdpOublie.setOnClickListener() {
+        lienVersMdpOublie.setOnClickListener {
             redirectToMotDePasseOublie()
         }
 
         //Connexion au profil
         val btnConnexion = findViewById<Button>(R.id.btn_connexion)
         btnConnexion.setOnClickListener {
-            val courrielInput : String = (findViewById<EditText>(R.id.courriel_input).text).toString()
-            val motDePasseInput : String = (findViewById<EditText>(R.id.motDePasse_input).text).toString()
-            connexion(courrielInput, motDePasseInput)
+            //Regex pour l'email
+            val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
+            //Regex pour le mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre)
+            val regexMDP = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
+
+            val courrielInput = findViewById<EditText>(R.id.courriel_input)
+            val motDePasseInput = findViewById<EditText>(R.id.motDePasse_input)
+
+
+            //Variable de validation
+            var valide : Boolean = false
+
+            //Messages d'erreurs
+            if (courrielInput.text.isEmpty()) {
+                courrielInput.error = "Veuillez entrer votre courriel"
+                valide = false
+            } else if (regexEmail.matches(courrielInput.text.toString())) {
+                    valide = true
+            } else {
+                courrielInput.error = "Veuillez entrer un courriel valide, il doit contenir un @ & un ."
+                valide = false
+            }
+            if (motDePasseInput.text.isEmpty()) {
+                motDePasseInput.error = "Veuillez entrer votre mot de passe"
+                valide = false
+            } else if (regexMDP.matches(motDePasseInput.text)) {
+                    valide = true
+            } else {
+                motDePasseInput.error = "Veuillez entrer un mot de passe valide, il doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre"
+                valide = false
+            }
+
+            //Validation & connexion
+            if (valide) {
+                connexion(courrielInput.text.toString(), motDePasseInput.text.toString())
+            } else {
+                Toast.makeText(this, "Veuillez entrez votre adresse courriel & votre mot de passe selon les critères désirés.", Toast.LENGTH_LONG).show()
+            }
         }
 
         //Lien de redirection vers la page d'inscription
         val lienVersInscription= findViewById<TextView>(R.id.lienVersInscription)
-        lienVersInscription.setOnClickListener() {
+        lienVersInscription.setOnClickListener {
             redirectToInscription()
         }
     }

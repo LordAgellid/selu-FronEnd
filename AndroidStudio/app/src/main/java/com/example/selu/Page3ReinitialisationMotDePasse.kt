@@ -22,36 +22,51 @@ class Page3ReinitialisationMotDePasse : AppCompatActivity(){
         flecheDeRetour3.setOnClickListener {
             retourPrecedentePage()
         }
+        //Regex pour le mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre)
+        val regexMDP = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
+
+
+        val nouveauMotDePasseInput1 = this.findViewById<EditText>(R.id.nv_motDePasse_input1)
+        val nouveauMotDePasseInput2 = this.findViewById<EditText>(R.id.nv_MotDePasse_input2)
+        val courriel = (this.intent.getStringExtra("Courriel"))
+
+        //Variable de validation
+        var valide : Boolean = false
 
         //Lien de redirection vers la vérification de code
         val btnReinitialiserMotDePasse = findViewById<TextView>(R.id.btn_reinitialiserMotDePasse)
         btnReinitialiserMotDePasse.setOnClickListener {
-            //Regex pour le mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre)
-            val regexMDP = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
-
-            //Variable de validation
-            var valide : Boolean = false
-
-            val nouveauMotDePasseInput1 = this.findViewById<EditText>(R.id.nv_motDePasse_input1)
-            val nouveauMotDePasseInput2 = this.findViewById<EditText>(R.id.nv_MotDePasse_input2)
-            val courriel = (this.intent.getStringExtra("Courriel"))
-
             //Messages d'erreurs
-            if (nouveauMotDePasseInput1.text.isEmpty() && nouveauMotDePasseInput2.text.isEmpty()) {
+            if (nouveauMotDePasseInput1.text.isEmpty() || nouveauMotDePasseInput2.text.isEmpty()) {
                 nouveauMotDePasseInput1.error = "Veuillez entrer votre mot de passe"
                 nouveauMotDePasseInput2.error = "Veuillez confirmer votre mot de passe"
-                nouveauMotDePasseInput2.error = "Veuillez entrer un mot de passe valide, il doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre"
                 valide = false
-            } else if (nouveauMotDePasseInput2.text != nouveauMotDePasseInput1.text) {
-                nouveauMotDePasseInput2.error = "Le mot de passe ne correspond pas au premier."
-            } else if (regexMDP.matches(nouveauMotDePasseInput2.text)) {
-                valide = true
+                println("1")
+            } else {
+                if (nouveauMotDePasseInput1.text.toString() != nouveauMotDePasseInput2.text.toString())
+                {
+                    nouveauMotDePasseInput1.error = "Les mots de passe ne correspondent pas"
+                    nouveauMotDePasseInput2.error = "Les mots de passe ne correspondent pas"
+                    valide = false
+                    println("2")
+                } else {
+                    if (regexMDP.matches(nouveauMotDePasseInput1.text)) {
+                        valide = true
+                        println("3")
+                    } else {
+                        nouveauMotDePasseInput1.error = "Veuillez entrer un mot de passe valide, il doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre"
+                        valide = false
+                        println("4")
+                    }
+                }
             }
 
             //Validation & Envoi
-            if (courriel != null && nouveauMotDePasseInput1 == nouveauMotDePasseInput2) {
+            if (courriel != null && nouveauMotDePasseInput1.text == nouveauMotDePasseInput2.text) {
+                    println("5")
                 if(valide) {
                     reinitialiserMotDePasse(nouveauMotDePasseInput2.text.toString(), courriel)
+                    println("6")
                 }
             }
         }
@@ -74,6 +89,7 @@ class Page3ReinitialisationMotDePasse : AppCompatActivity(){
             url,
             body,
             {
+                println(it)
                 if(it.getBoolean("success")) {
                     val intent = Intent(this, Connexion::class.java)
                     intent.putExtra("Courriel", courriel)

@@ -17,7 +17,14 @@ class Page1EnvoiCodeDeVerification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mdpo_page1)
 
+        //Regex pour le courriel
+        val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
 
+        //Valeur d'entrée
+        val courrielInput = findViewById<EditText>(R.id.courriel_input)
+
+        //Variable de validation
+        var valide : Boolean = false
 
         // Flèche de retour vers la page de connexion
         val flecheDeRetour1 = findViewById<ImageView>(R.id.flecheDeRetour1)
@@ -28,13 +35,6 @@ class Page1EnvoiCodeDeVerification : AppCompatActivity() {
         //Lien de redirection vers la vérification de code
         val btnEnvoiCodeVerification= findViewById<TextView>(R.id.btn_envoiCodeVerification)
         btnEnvoiCodeVerification.setOnClickListener {
-            val courrielInput = findViewById<EditText>(R.id.courriel_input)
-            //Regex pour l'email
-            val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
-
-            //Variable de validation
-            var valide : Boolean = false
-
             //Messages d'erreurs
             if (courrielInput.text.isEmpty()) {
                 courrielInput.error = "Veuillez entrer votre courriel"
@@ -66,11 +66,12 @@ class Page1EnvoiCodeDeVerification : AppCompatActivity() {
         val body = JSONObject()
         body.put("Courriel", courriel)
 
-        val r = JsonObjectRequest(
+        val postRequest = JsonObjectRequest(
             Request.Method.POST,
             url,
             body,
             {
+                println(it)
                 if(it.getBoolean("success")) {
                     val intent = Intent(this, Page2VerificationCode::class.java)
                     intent.putExtra("Courriel", courriel)
@@ -81,6 +82,6 @@ class Page1EnvoiCodeDeVerification : AppCompatActivity() {
                 println(it)
             }
         )
-        queue.add(r)
+        queue.add(postRequest)
     }
 }

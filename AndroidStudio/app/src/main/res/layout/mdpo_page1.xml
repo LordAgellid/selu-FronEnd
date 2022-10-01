@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_jewel">
+    android:background="@color/primary">
 
 
     <ImageView
@@ -89,8 +89,8 @@
             android:selectAllOnFocus="false"
             android:singleLine="false"
             android:textAlignment="textStart"
-            android:textColor="@color/green_jewel"
-            android:textColorHint="@color/gum_leaf"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary_light"
             android:textSize="16sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,7 @@
             android:text="@string/envoyer"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/green_jewel"
+            android:textColor="@color/primary"
             android:textSize="16sp"
             app:backgroundTint="@color/white"
             app:cornerRadius="12dp"

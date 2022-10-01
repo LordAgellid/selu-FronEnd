@@ -26,7 +26,7 @@ class Page3ReinitialisationMotDePasse : AppCompatActivity(){
         val nouveauMotDePasseInput2 = this.findViewById<EditText>(R.id.nv_MotDePasse_input2)
 
         //Variable de validation
-        var valide : Boolean = false
+        var valide: Boolean
 
         //Flèche de retour vers la page de connexion
         val flecheDeRetour3 = findViewById<ImageView>(R.id.flecheDeRetour3)

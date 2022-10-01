@@ -23,7 +23,7 @@ class Connexion : AppCompatActivity() {
         val regexMotDePasse = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
 
         //Variable de validation
-        var valide : Boolean = false
+        var valide: Boolean
 
         //Valeurs d'entrée
         val courrielInput = findViewById<EditText>(R.id.courriel_input)

@@ -27,7 +27,7 @@ class Inscription : AppCompatActivity() {
         val regexMotDePasse = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
 
         //Variable de validation
-        var valide : Boolean = false
+        var valide: Boolean
 
         //Valeurs d'entrée
         val nomInput = this.findViewById<EditText>(R.id.nom_input)

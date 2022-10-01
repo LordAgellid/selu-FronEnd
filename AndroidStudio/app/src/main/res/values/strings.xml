@@ -33,4 +33,10 @@
     <string name="reinitialiser">RÉINITIALISER</string>
     <string name="mdpo_headline">Mot de passe oublié</string>
     <string name="fleche_de_retour">Flèche de retour</string>
+
+
+    <string name="envoyer_un_msg"> Envoyer un message</string>
+    <string name="nom_de_lutilisateur"> Nom de l\'utilisateur</string>
+
+
 </resources>

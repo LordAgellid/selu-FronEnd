@@ -31,8 +31,10 @@
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/drawable-v24/round_rectangle_shape.xml" value="0.1295" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/drawable/ic_baseline_book_24.xml" value="0.1295" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1295" />
+        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/font/inter.xml" value="0.18981481481481483" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/font/inter_bold.xml" value="0.375" />
-        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/connexion.xml" value="0.21776315789473685" />
+        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/font/inter_new_bold.xml" value="0.18981481481481483" />
+        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/connexion.xml" value="0.24473684210526317" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/inscription.xml" value="0.33" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/mdp_page1.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/mdp_page2.xml" value="0.29743589743589743" />
@@ -42,7 +44,7 @@
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/mdpo_page3.xml" value="0.22671009771986972" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/page_confmail.xml" value="0.21776315789473685" />
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/page_profil.xml" value="0.22671009771986972" />
-        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/page_profil2.xml" value="0.21776315789473685" />
+        <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/layout/page_profil2.xml" value="0.25" />
       </map>
     </option>
   </component>

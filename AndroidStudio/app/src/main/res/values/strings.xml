@@ -37,6 +37,10 @@
 
     <string name="envoyer_un_msg"> Envoyer un message</string>
     <string name="nom_de_lutilisateur"> Nom de l\'utilisateur</string>
+    <string name="nom_de_l_utilisateur">Nom de l\'utilisateur</string>
+    <string name="envoyer_un_message">Envoyer un message</string>
+    <string name="mes_articles">Mes articles</string>
+    <string name="aucun_article_en_vente">Aucun article en vente</string>
 
 
 </resources>

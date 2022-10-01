@@ -21,7 +21,7 @@ class PageProfil : AppCompatActivity() {
         val nomComplet : String = "${prenom} ${nom}"
 
         findViewById<TextView>(R.id.username).text = nomComplet
-        findViewById<TextView>(R.id.email).text = courriel
-        findViewById<TextView>(R.id.token).text = token
+//        findViewById<TextView>(R.id.email).text = courriel
+//        findViewById<TextView>(R.id.token).text = token
     }
 }

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Selu</string>
-    <string name="bienvenue">Bienvenue</string>
+    <string name="bienvenue">Bienvenue !</string>
     <string name="connectez_vous_a_votre_compte">Connectez-vous à votre compte</string>
     <string name="continuer_avec_google">Continuer avec Google</string>
     <string name="ou">OU</string>
@@ -11,7 +11,7 @@
     <string name="vous_n_avez_pas_de_compte_selu">Vous n’avez pas de compte Selu?</string>
     <string name="en_creer_un_maintenant"><u>En créer un maintenant</u></string>
 
-    <string name="nouveau">Nouveau</string>
+    <string name="nouveau">Nouveau...</string>
     <string name="creez_votre_compte_selu">Créez votre compte Selu</string>
     <string name="nom">Nom</string>
     <string name="prenom">Prénom</string>
@@ -21,26 +21,24 @@
     <string name="vous_detenez_deja_un_compte_selu">Vous détenez déjà un compte Selu?</string>
     <string name="connectez_vous"><u>Connectez-vous</u></string>
 
-    <string name="mot_de_passe_oublie_text_section1">Entrez votre adresse courriel. Nous vous enverrons un code de vérification.</string>
+    <string name="mot_de_passe_oublie_text_section1"><b><u>Étape 1:</u></b> Entrez votre adresse courriel. Nous vous enverrons un code de vérification.</string>
     <string name="envoyer">ENVOYER</string>
 
-    <string name="mot_de_passe_oublie_text_section2">Entrez le code de vérification envoyé à votre adresse courriel.</string>
+    <string name="mot_de_passe_oublie_text_section2"><b><u>Étape 2:</u></b> Entrez le code de vérification envoyé à votre adresse courriel.</string>
     <string name="code">Code</string>
     <string name="renvoyer_le_code"><u>Renvoyer le code</u></string>
     <string name="verifier">Vérifier</string>
 
-    <string name="mot_de_passe_oublie_text_section3">Plus qu’un petit pas. Veuillez entrer votre nouveau mot de passe.</string>
+    <string name="mot_de_passe_oublie_text_section3"><b><u>Étape 3:</u></b> Plus qu’un petit pas. Veuillez entrer votre nouveau mot de passe.</string>
     <string name="reinitialiser">RÉINITIALISER</string>
     <string name="mdpo_headline">Mot de passe oublié</string>
     <string name="fleche_de_retour">Flèche de retour</string>
 
+    <string name="confirmation_de_courriel">Confirmation de courriel</string>
+    <string name="confirmation_de_courriel_text_section">Plus qu’un petit pas. Entrez le code de vérification envoyé à votre adresse courriel.</string>
 
-    <string name="envoyer_un_msg"> Envoyer un message</string>
-    <string name="nom_de_lutilisateur"> Nom de l\'utilisateur</string>
     <string name="nom_de_l_utilisateur">Nom de l\'utilisateur</string>
     <string name="envoyer_un_message">Envoyer un message</string>
     <string name="mes_articles">Mes articles</string>
     <string name="aucun_article_en_vente">Aucun article en vente</string>
-
-
 </resources>

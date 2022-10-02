@@ -7,22 +7,11 @@
     android:background="@color/primary">
 
 
-    <ImageView
-        android:id="@+id/flecheDeRetour2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="54dp"
-        android:contentDescription="@string/fleche_de_retour"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/left_white_arrow" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +19,13 @@
 
         <TextView
             android:id="@+id/headlines_confirmerMail"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
-            android:text="confirmation_de_mail"
+            android:text="@string/confirmation_de_courriel"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="34sp"
+            android:textSize="48sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,20 +34,21 @@
 
         <TextView
             android:id="@+id/mdpo_page2_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inter"
-            android:text="@string/mot_de_passe_oublie_text_section2"
+            android:text="@string/confirmation_de_courriel_text_section"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headlines_confirmerMail"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:lineHeight="24sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -107,7 +97,7 @@
             android:id="@+id/lienRenvoiCodeVerification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter_bold"
             android:text="@string/renvoyer_le_code"
             android:textAlignment="center"

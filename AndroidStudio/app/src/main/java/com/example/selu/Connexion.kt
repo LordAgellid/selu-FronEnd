@@ -98,14 +98,9 @@ class Connexion : AppCompatActivity() {
             {
                 println(it)
                 if(it.getBoolean("success")) {
-                    val intent = Intent(this, PageProfil::class.java)
-
-                    val nom = it.getString("Nom")
-                    val prenom = it.getString("Prenom")
+                    val intent = Intent(this, PageMonProfil::class.java)
                     val token = it.getString("access_token")
 
-                    intent.putExtra("Nom", nom)
-                    intent.putExtra("Prenom", prenom)
                     intent.putExtra("Courriel", courriel)
                     intent.putExtra("Token", token)
 

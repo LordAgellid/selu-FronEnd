@@ -57,6 +57,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image_profil"
                     tools:ignore="TextContrastCheck" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,6 +96,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="67dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="352dp"
+            android:layout_marginBottom="252dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/edit5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

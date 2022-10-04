@@ -40,7 +40,7 @@ class PageMonProfil : AppCompatActivity() {
         val courriel = this.intent.getStringExtra("Courriel")
         val token = this.intent.getStringExtra("Token")
         val photoProfile = this.findViewById<ImageView>(R.id.image_profil)
-        photoProfile.setImageResource(R.drawable.google_g_logo)
+
 
         val queue = Volley.newRequestQueue(this)
         val url = "http://10.0.2.2:3000/profile/${courriel}"

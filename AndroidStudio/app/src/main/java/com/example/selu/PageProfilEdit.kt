@@ -1,5 +1,6 @@
 package com.example.selu
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -7,12 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.storage.FirebaseStorage
@@ -46,10 +45,10 @@ class PageProfilEdit : AppCompatActivity() {
         val btn_choose_image = findViewById<ImageView>(R.id.uploadImg)
         val btn_upload_all = findViewById<Button>(R.id.btn_modifier)
 
-        //recuperation des donnees
+        //recuperation des donnees et affichage
+        getProfil()
 
 
-        //affichage des donnees
 
         //Regex pour le prénom
         val regexPrenom = Regex("^[A-Za-z]+$")
@@ -150,7 +149,8 @@ class PageProfilEdit : AppCompatActivity() {
             Request.Method.POST, url, body,
             { response ->
                 Toast.makeText(this, messageSuccess, Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, PageProfil::class.java)
+                val intent = Intent(this, PageMonProfil::class.java)
+                intent.putExtra("Courriel", courriel)
                 startActivity(intent)
             },
             { error ->
@@ -184,6 +184,50 @@ class PageProfilEdit : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun getProfil() {
+        val courriel = this.intent.getStringExtra("Courriel")
+
+        //prendre les input du profil
+        val photoProfile = this.findViewById<ImageView>(R.id.image_profil)
+        val prenomInput = findViewById<EditText>(R.id.prenom_input)
+        val nomInput = findViewById<EditText>(R.id.nom_input)
+        val courrielInput = findViewById<EditText>(R.id.courriel_input)
+
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://10.0.2.2:3000/profile/${courriel}"
+        @Suppress("RedundantSamConstructor")
+        val jsonRequest = JsonArrayRequest (
+            Request.Method.GET, url, null,
+            Response.Listener {
+                val data = it.getJSONObject(0)
+
+                //prend les donnees de la bd
+                val photoDeProfil = data.getString("PhotoDeProfil").toString()
+                val nomDeFamille = data.getString("NomDeFamille").toString()
+                val prenom = data.getString("Prenom").toString()
+
+                //Affichage des donnees
+                nomInput.setText(nomDeFamille)
+                prenomInput.setText(prenom)
+                courrielInput.setText(courriel)
+
+                //Affichage de l'image
+                if(photoDeProfil == "null" || photoDeProfil == "") {
+                    println("Photo est null")
+                } else {
+                    println("Photo pas null")
+                    Picasso.get().load(photoDeProfil).into(photoProfile)
+                }
+            },
+            Response.ErrorListener {
+                println(it)
+                Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
+            })
+        queue.add(jsonRequest)
     }
 
 }

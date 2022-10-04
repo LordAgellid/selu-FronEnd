@@ -1,8 +1,13 @@
 package com.example.selu
 
+import android.content.Intent
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.selu.Connexion.Companion.EXTRA_NAME
+import com.example.selu.databinding.PageProfilBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -13,8 +18,14 @@ import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
 
 class PageProfil : AppCompatActivity() {
+
+    private lateinit var binding : PageProfilBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = PageProfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         setContentView(R.layout.page_profil)
         getProfil()
     }

@@ -154,7 +154,7 @@
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/mdp_input"
+            android:id="@+id/motDePasseInput1"
             android:layout_width="275dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -186,7 +186,7 @@
             tools:ignore="TextContrastCheck" />
 
         <EditText
-            android:id="@+id/confirmer_mdp_input"
+            android:id="@+id/motDePasseInput2"
             android:layout_width="275dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -215,7 +215,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mdp_input"
+            app:layout_constraintTop_toBottomOf="@+id/motDePasseInput1"
             tools:ignore="TextContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

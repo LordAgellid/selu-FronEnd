@@ -35,7 +35,7 @@ class Connexion : AppCompatActivity() {
         //Regex pour le courriel
         val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
         //Regex pour le mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre)
-        val regexMotDePasse = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}\$")
+        val regexMotDePasse = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+\$).{8,}\$")
 
         //Variable de validation
         var valide: Boolean
@@ -134,10 +134,12 @@ class Connexion : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful) {
-                val intent : Intent = Intent(this, PageProfil::class.java)
-                intent.putExtra("email", account.email)
-                intent.putExtra("name", account.displayName)
-                startActivity(intent)
+                println(account.id)
+                println(account.idToken)
+//                val intent : Intent = Intent(this, PageMonProfil::class.java)
+//                intent.putExtra("email", account.email)
+//                intent.putExtra("name", account.displayName)
+//                startActivity(intent)
             } else {
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_LONG)
             }
@@ -151,7 +153,7 @@ class Connexion : AppCompatActivity() {
 
     private fun connexion(courriel :String, motDePasse : String) {
         val messageSuccess = "Connexion réussi !"
-        val messageEchec = "ERREUR: Connexion échouée. Veuillez  !"
+        val messageEchec = "ERREUR: Connexion échouée. Veuillez vérifier votre adresse courriel & mot de passe!"
 
         val url = "http://10.0.2.2:3000/connexion"
         val queue = Volley.newRequestQueue(this)

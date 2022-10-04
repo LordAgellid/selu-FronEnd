@@ -3,19 +3,22 @@ package com.example.selu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.selu.databinding.ConnexionBinding
+import com.example.selu.databinding.InscriptionBinding
 import org.json.JSONObject
 
 class Inscription : AppCompatActivity() {
+
+    private lateinit var binding : InscriptionBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.inscription)
+        binding = InscriptionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Regex pour le prénom
         val regexPrenom = Regex("^[A-Za-z]+$")
@@ -30,21 +33,21 @@ class Inscription : AppCompatActivity() {
         var valide: Boolean
 
         //Valeurs d'entrée
-        val nomInput = this.findViewById<EditText>(R.id.nom_input)
-        val prenomInput = this.findViewById<EditText>(R.id.prenom_input)
-        val courrielInput = this.findViewById<EditText>(R.id.courriel_input)
-        val motDePasseInput1 = this.findViewById<EditText>(R.id.mdp_input)
-        val motDePasseInput2 = this.findViewById<EditText>(R.id.confirmer_mdp_input)
+        val nomInput = binding.nomInput
+        val prenomInput = binding.prenomInput
+        val courrielInput = binding.courrielInput
+        val motDePasseInput1 = binding.motDePasseInput1
+        val motDePasseInput2 = binding.motDePasseInput2
 
         //Lien de redirection vers la page d'inscription
-        val lienVersConnexion : TextView = findViewById(R.id.lienVersConnexion)
+        val lienVersConnexion = binding.lienVersConnexion
         lienVersConnexion.setOnClickListener {
             redirectToConnexion()
         }
 
         //Bouton inscrire
-        val boutonInscrire = this.findViewById<Button>(R.id.btn_inscription)
-        boutonInscrire.setOnClickListener {
+        val btnInscrireption = binding.btnInscription
+        btnInscrireption.setOnClickListener {
             //Messages d'erreurs
             // -> Prénom
             if (prenomInput.text.isEmpty() ){

@@ -1,8 +1,10 @@
 package com.example.selu
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,12 +12,28 @@ import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.selu.databinding.ConnexionBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 
 class Connexion : AppCompatActivity() {
+
+    private lateinit var auth : FirebaseAuth
+    private lateinit var binding : ConnexionBinding
+    private lateinit var googleSignInClient : GoogleSignInClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.connexion)
+        binding = ConnexionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Regex pour le courriel
         val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
@@ -26,17 +44,32 @@ class Connexion : AppCompatActivity() {
         var valide: Boolean
 
         //Valeurs d'entrée
-        val courrielInput = findViewById<EditText>(R.id.courriel_input)
-        val motDePasseInput = findViewById<EditText>(R.id.motDePasse_input)
+        val courrielInput = binding.courrielInput
+        val motDePasseInput = binding.motDePasseInput
+
+        //Connexion via Google
+        auth = Firebase.auth
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        binding.btnConnexionGoogle.setOnClickListener {
+            connexionGoogle()
+        }
+
 
         //Lien de redirection vers la page de mot de passe oublié
-        val lienVersMdpOublie= findViewById<TextView>(R.id.lienVersMdpOublie)
+        val lienVersMdpOublie = binding.lienVersMdpOublie
         lienVersMdpOublie.setOnClickListener {
             redirectToMotDePasseOublie()
         }
 
         //Connexion au profil
-        val btnConnexion = findViewById<Button>(R.id.btn_connexion)
+        val btnConnexion = binding.btnConnexion
         btnConnexion.setOnClickListener {
             //Messages d'erreurs
             // -> Courriel
@@ -70,9 +103,59 @@ class Connexion : AppCompatActivity() {
         }
 
         //Lien de redirection vers la page d'inscription
-        val lienVersInscription= findViewById<TextView>(R.id.lienVersInscription)
+        val lienVersInscription = binding.lienVersInscription
         lienVersInscription.setOnClickListener {
             redirectToInscription()
+        }
+    }
+
+    private fun connexionGoogle() {
+        val singInIntent = googleSignInClient.signInIntent
+        startActivityForResult(singInIntent, RC_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                println(account)
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e)
+            }
+            println(task)
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(TAG, "signInWithCredential:success")
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    updateUI(null)
+                }
+            }
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+        if (user != null) {
+            val intent = Intent(applicationContext, PageProfil::class.java)
+            intent.putExtra(EXTRA_NAME, user.displayName)
+            startActivity(intent)
         }
     }
 
@@ -119,5 +202,10 @@ class Connexion : AppCompatActivity() {
     private fun redirectToInscription() {
         val intent = Intent(this, Inscription::class.java)
         startActivity(intent)
+    }
+
+    companion object {
+        const val RC_SIGN_IN = 1001
+        const val EXTRA_NAME = "EXTRA NAME"
     }
 }

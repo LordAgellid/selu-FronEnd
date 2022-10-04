@@ -32,6 +32,7 @@ class PageProfilEdit : AppCompatActivity() {
 
         var valide : Boolean
 
+
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
@@ -49,7 +50,6 @@ class PageProfilEdit : AppCompatActivity() {
         getProfil()
 
 
-
         //Regex pour le prénom
         val regexPrenom = Regex("^[A-Za-z]+$")
         //Regex pour le nom
@@ -62,6 +62,7 @@ class PageProfilEdit : AppCompatActivity() {
         //bouton pour choisir une image
         btn_choose_image.setOnClickListener {
             chooseImage()
+
         }
 
         //bouton pour modifier les donnees
@@ -101,8 +102,58 @@ class PageProfilEdit : AppCompatActivity() {
             //Validation & connexion
             if (valide) {
                 //upload de l'image sur firebase
-                if (filePath != null) {
-                    val ref = storageReference!!.child("images/" + UUID.randomUUID().toString())
+                println(filePath)
+                if (filePath.toString() == "" || filePath == null) {
+
+                    val ref2 = storageReference!!
+                        .child("Utilisateurs")
+                        .child(courrielInput.text.toString())
+                        .child("imageProfile")
+                    //montrer l'imageProfile de tout les utilisateurs
+
+                    ref2.listAll()
+                        .addOnSuccessListener { listResult ->
+                            for (item in listResult.items) {
+                                // get the url of the image
+                                item.downloadUrl.addOnSuccessListener {
+                                    // use the url to load the image
+                                    ModifierProfil(
+                                        prenomInput.text.toString(),
+                                        nomInput.text.toString(),
+                                        courrielInput.text.toString(),
+                                        it.toString()
+                                    )
+                                }
+                            }
+                        }
+                        .addOnFailureListener {
+                            Log.d("Erreur", "Erreur lors de la suppression des images")
+                        }
+                } else {
+                    val ref = storageReference!!
+                        .child("Utilisateurs")
+                        .child(courrielInput.text.toString())
+                        .child("imageProfile")
+                        .child(UUID.randomUUID().toString())
+
+                    val ref2 = storageReference!!
+                        .child("Utilisateurs")
+                        .child(courrielInput.text.toString())
+                        .child("imageProfile")
+                    //montrer l'imageProfile de tout les utilisateurs
+                    ref2.listAll()
+                        .addOnSuccessListener { listResult ->
+                            for (item in listResult.items) {
+
+                                item.delete()
+                                Log.d("TAG", "onSuccess: deleted file")
+                            }
+                        }
+                        .addOnFailureListener {
+                            Log.d("Erreur", "Erreur lors de la suppression des images")
+                        }
+
+
                     ref.putFile(filePath!!)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Uploaded", Toast.LENGTH_SHORT).show()
@@ -173,6 +224,7 @@ class PageProfilEdit : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             if(data == null || data.data == null){
+
                 return
             }
             filePath = data.data
@@ -218,6 +270,7 @@ class PageProfilEdit : AppCompatActivity() {
                 //Affichage de l'image
                 if(photoDeProfil == "null" || photoDeProfil == "") {
                     println("Photo est null")
+                    Picasso.get().load(R.drawable.image_profil_temp).into(photoProfile)
                 } else {
                     println("Photo pas null")
                     Picasso.get().load(photoDeProfil).into(photoProfile)

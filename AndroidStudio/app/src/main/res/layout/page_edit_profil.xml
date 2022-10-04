@@ -45,7 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/upload"
+                    android:id="@+id/uploadImg"
                     android:layout_width="88dp"
                     android:layout_height="51dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -209,7 +209,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/btn_inscription2"
+            android:id="@+id/btn_modifier"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="196dp"
             android:layout_height="48dp"

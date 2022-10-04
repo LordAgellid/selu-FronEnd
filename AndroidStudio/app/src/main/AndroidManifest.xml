@@ -21,6 +21,9 @@
             android:name=".PageProfil"
             android:exported="false" />
         <activity
+            android:name=".PageProfilEdit"
+            android:exported="false" />
+        <activity
             android:name=".Page3ReinitialisationMotDePasse"
             android:exported="false" />
         <activity

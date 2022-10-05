@@ -27,6 +27,15 @@ class PageMonProfil : AppCompatActivity() {
         btnEdit.setOnClickListener {
             redirectToEditProfil()
         }
+
+        //Bouton pour deconnexion
+        val btnDeconnexion = findViewById<ImageView>(R.id.deconnexion)
+        btnDeconnexion.setOnClickListener {
+            // Redirection vers la page de connexion et supression des tokens
+            // et supression des tokens
+            val intent = Intent(this, Connexion::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun redirectToEditProfil() {

@@ -8,7 +8,7 @@
     <string name="mot_de_passe_placeholder">••••••••••••</string>
     <string name="mot_de_passe_oublie_connexion"><u>Mot de passe oublié ?</u></string>
     <string name="connexion">Connexion</string>
-    <string name="vous_n_avez_pas_de_compte_selu">Vous n’avez pas de compte Selu?</string>
+    <string name="vous_n_avez_pas_de_compte_selu">Vous n’avez pas de compte <span>Selu?</span></string>
     <string name="en_creer_un_maintenant"><u>En créer un maintenant</u></string>
 
     <string name="nouveau">Nouveau…</string>
@@ -41,6 +41,4 @@
     <string name="envoyer_un_message">Envoyer un message</string>
     <string name="mes_articles">Mes articles</string>
     <string name="aucun_article_en_vente">Aucun article en vente</string>
-
-<!--    <string name="default_web_client_id">427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com</string>-->
 </resources>

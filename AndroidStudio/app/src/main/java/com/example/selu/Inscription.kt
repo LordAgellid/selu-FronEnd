@@ -107,9 +107,9 @@ class Inscription : AppCompatActivity() {
         }
     }
 
-    private fun inscription(prenom : String, nom : String, courriel : String, motDePasse : String) {
+    public fun inscription(prenom : String, nom : String, courriel : String, motDePasse : String) {
         val messageSuccess = "Inscription réussi !"
-        val messageEchec = "ERREUR: Inscription échouée. Veuillez réessayer !"
+        val messageEchec = "L'adresse courriel inscrite existe déjà."
 
         val url = "http://10.0.2.2:3000/utilisateurs/inscription"
         val queue = Volley.newRequestQueue(this)
@@ -130,7 +130,6 @@ class Inscription : AppCompatActivity() {
                 Toast.makeText(this, messageSuccess, Toast.LENGTH_LONG).show()
             },
             {
-                println(it)
                 Toast.makeText(this, messageEchec, Toast.LENGTH_LONG).show()
             }
         )

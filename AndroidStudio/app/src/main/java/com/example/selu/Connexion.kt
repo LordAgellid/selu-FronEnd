@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.text.trimmedLength
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -24,7 +25,8 @@ class Connexion : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private lateinit var binding : ConnexionBinding
     private lateinit var googleSignInClient : GoogleSignInClient
-        //Client Server ID
+
+    //Client Server ID
     private var default_web_client_id = "427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +43,8 @@ class Connexion : AppCompatActivity() {
         var valide: Boolean
 
         //Valeurs d'entrée
-        val courrielInput = binding.courrielInput
         val motDePasseInput = binding.motDePasseInput
+        val courrielInput = binding.courrielInput
 
 
         auth = FirebaseAuth.getInstance()
@@ -122,7 +124,7 @@ class Connexion : AppCompatActivity() {
         if(task.isSuccessful) {
             val account : GoogleSignInAccount? = task.result
             if(account != null) {
-                println("HEEEEEEEEEEEEEYYYYYYY " + account)
+                println(account)
                 updateUI(account)
             }
         } else {
@@ -134,12 +136,16 @@ class Connexion : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful) {
-                println(account.id)
-                println(account.idToken)
-//                val intent : Intent = Intent(this, PageMonProfil::class.java)
-//                intent.putExtra("email", account.email)
-//                intent.putExtra("name", account.displayName)
-//                startActivity(intent)
+                val prenom = account.givenName.toString()
+                val nom = account.familyName.toString()
+                val email = account.email.toString()
+                val motDePasse = account.idToken.toString().substring(0, 19)
+
+                val courrielInput = binding.courrielInput
+                val token = account.idToken.toString()
+
+                inscription(prenom,nom,email,motDePasse)
+                redirectToProfilePage(courrielInput.text.toString(), token)
             } else {
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_LONG)
             }
@@ -168,13 +174,8 @@ class Connexion : AppCompatActivity() {
             {
                 println(it)
                 if(it.getBoolean("success")) {
-                    val intent = Intent(this, PageMonProfil::class.java)
                     val token = it.getString("access_token")
-
-                    intent.putExtra("Courriel", courriel)
-                    intent.putExtra("Token", token)
-
-                    this.startActivity(intent)
+                    redirectToProfilePage(courriel, token)
                     Toast.makeText(this, messageSuccess, Toast.LENGTH_LONG).show()
                 }
             },
@@ -184,6 +185,42 @@ class Connexion : AppCompatActivity() {
             }
         )
         queue.add(postRequest)
+    }
+
+    public fun inscription(prenom : String, nom : String, courriel : String, motDePasse : String) {
+        val messageSuccess = "Inscription réussi !"
+        val messageEchec = "L'adresse courriel inscrite existe déjà."
+
+        val url = "http://10.0.2.2:3000/utilisateurs/inscription"
+        val queue = Volley.newRequestQueue(this)
+        val body = JSONObject()
+
+        body.put("Prenom", prenom.trim())
+        body.put("NomDeFamille", nom.trim())
+        body.put("Courriel", courriel.trim())
+        body.put("MotDePasse", motDePasse.trim())
+
+        val postRequest = JsonObjectRequest(
+            Request.Method.POST,
+            url,
+            body,
+            {
+                println(it)
+                Toast.makeText(this, messageSuccess, Toast.LENGTH_LONG).show()
+            },
+            {
+                Toast.makeText(this, messageEchec, Toast.LENGTH_LONG).show()
+            }
+        )
+        queue.add(postRequest)
+    }
+
+
+    private fun redirectToProfilePage(courriel: String, token : String) {
+        val intent = Intent(this, PageMonProfil::class.java)
+        intent.putExtra("Courriel", courriel)
+        intent.putExtra("Token", token)
+        this.startActivity(intent)
     }
 
     private fun redirectToInscription() {

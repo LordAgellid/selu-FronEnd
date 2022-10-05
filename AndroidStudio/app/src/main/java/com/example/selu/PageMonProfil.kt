@@ -11,9 +11,14 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.example.selu.databinding.PageMonprofilBinding
+import com.example.selu.databinding.PageProfilBinding
 import com.squareup.picasso.Picasso
 
 class PageMonProfil : AppCompatActivity() {
+
+    private lateinit var binding: PageMonprofilBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.page_monprofil)

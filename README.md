@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://bit.ly/3xltPRY" alt="Logo" width=auto>
+  <img src="https://bit.ly/3BHNCOn" alt="Logo" width=auto>
 </p>
 
 # Selu

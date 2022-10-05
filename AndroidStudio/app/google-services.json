@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "427619450967",
+    "project_id": "selu-5ac33",
+    "storage_bucket": "selu-5ac33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427619450967:android:894698a630e4d532f92312",
+        "android_client_info": {
+          "package_name": "com.example.selu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427619450967-h46aa34fiat6qtlf71j6isbclee190c9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.selu",
+            "certificate_hash": "3734fa58e6411e81ab6bead59f00ae9eb55a59d1"
+          }
+        },
+        {
+          "client_id": "427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqWspqAWqCRS9O8e14-4qZypAawnA7HYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

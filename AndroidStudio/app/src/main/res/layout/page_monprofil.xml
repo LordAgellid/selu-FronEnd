@@ -12,22 +12,23 @@
         android:background="@color/light_grey"
         android:backgroundTint="@color/light_grey"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/utilisateur"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_width="179dp"
+            android:layout_height="249dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/profil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="186dp"
+                android:layout_height="210dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -35,11 +36,11 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/image_profil"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="185dp"
+                    android:layout_height="177dp"
+                    android:layout_marginTop="4dp"
                     android:src="@drawable/image_profil_temp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,7 +69,7 @@
                 android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profil"/>
+                app:layout_constraintTop_toBottomOf="@+id/profil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,6 +83,19 @@
             app:layout_constraintHorizontal_bias="0.985"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/edit5" />
+
+        <ImageView
+            android:id="@+id/deconnexion"
+            android:layout_width="56dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/edit"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.088"
+            app:srcCompat="@drawable/logout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -124,6 +138,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

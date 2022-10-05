@@ -58,6 +58,14 @@ class PageProfilEdit : AppCompatActivity() {
         val regexEmail = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
 
 
+        //Bouton pour deconnexion
+        val btnDeconnexion = findViewById<ImageView>(R.id.deconnexion)
+        btnDeconnexion.setOnClickListener {
+            // Redirection vers la page de connexion et supression des tokens
+            // et supression des tokens
+            val intent = Intent(this, Connexion::class.java)
+            startActivity(intent)
+        }
 
         //bouton pour choisir une image
         btn_choose_image.setOnClickListener {

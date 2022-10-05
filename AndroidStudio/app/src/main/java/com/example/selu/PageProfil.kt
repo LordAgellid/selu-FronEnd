@@ -1,13 +1,10 @@
 package com.example.selu
 
-import android.content.Intent
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.selu.Connexion.Companion.EXTRA_NAME
 import com.example.selu.databinding.PageProfilBinding
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,16 +12,33 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 
 class PageProfil : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding : PageProfilBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = PageProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        auth = FirebaseAuth.getInstance()
+        checkUser()
+
+        val name = intent.getStringExtra("name")
+        val email = intent.getStringExtra("email")
+        binding.username.text = "${name} ${email}"
+
+        binding.envoyerMsg.setOnClickListener() {
+            checkUser()
+            Firebase.auth.signOut()
+            startActivity(Intent(this, Connexion::class.java))
+        }
 
         setContentView(R.layout.page_profil)
         getProfil()
@@ -61,5 +75,10 @@ class PageProfil : AppCompatActivity() {
                 Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
             })
         queue.add(jsonRequest)
+    }
+
+    private fun checkUser() {
+        val user = auth.currentUser
+        println("Allo " + user)
     }
 }

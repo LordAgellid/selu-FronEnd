@@ -57,6 +57,7 @@ class PageMonProfil : AppCompatActivity() {
                 findViewById<TextView>(R.id.username).text = "$prenom $nomDeFamille"
                 if(photoDeProfil == "null" || photoDeProfil == "") {
                     println("Photo est null")
+                    Picasso.get().load("https://bit.ly/3e4JL4V").into(photoProfile)
                 } else {
                     println("Photo pas null")
                     Picasso.get().load(photoDeProfil).into(photoProfile)

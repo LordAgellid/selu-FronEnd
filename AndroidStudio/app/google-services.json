@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "427619450967-h46aa34fiat6qtlf71j6isbclee190c9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.selu",
+            "certificate_hash": "3734fa58e6411e81ab6bead59f00ae9eb55a59d1"
+          }
+        },
+        {
           "client_id": "427619450967-0fmipg0o93anma4it0pq7uo8gsg4uoq7.apps.googleusercontent.com",
           "client_type": 3
         }

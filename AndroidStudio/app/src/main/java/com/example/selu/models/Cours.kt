@@ -1,7 +1,7 @@
 package com.example.selu.models
 
-data class Cours(
+data class Cours (
         val id: Int,
         val nom: String,
-        val programmesId: Int,
+        val programmeId: Int
 )

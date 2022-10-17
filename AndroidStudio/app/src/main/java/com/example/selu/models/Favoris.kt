@@ -1,6 +1,6 @@
 package com.example.selu.models
 
-data class Favoris(
-   val LivresId: Int,
-   val UtilisateursId: Int
+data class Favoris (
+   val livresId: Int,
+   val utilisateurId: Int
 )

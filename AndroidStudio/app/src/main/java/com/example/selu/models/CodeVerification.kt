@@ -1,7 +1,7 @@
 package com.example.selu.models
 
-data class CodeVerification(
+data class CodeVerification (
     val id: Int,
     val code: String,
-    val courrielUtilisateurs: String
+    val courrielUtilisateur: String
 )

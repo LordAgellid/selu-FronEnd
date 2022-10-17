@@ -1,6 +1,6 @@
 package com.example.selu.models
 
-data class Utilisateurs(
+data class Utilisateur (
     val id: Int,
     val prenom : String,
     val nomDeFamille : String,

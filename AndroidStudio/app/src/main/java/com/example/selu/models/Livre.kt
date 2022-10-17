@@ -1,6 +1,6 @@
 package com.example.selu.models
 
-data class Livres(
+data class Livre (
     val id: Int,
     val titre: String,
     val descriptionLivre: String,
@@ -10,5 +10,5 @@ data class Livres(
     val collectionId: Int,
     val maisonEditionId: Int,
     val datePublication: String,
-    val photoId: String,
+    val photoId: String
 )

@@ -1,6 +1,6 @@
 package com.example.selu.models
 
-data class Programmes(
+data class Programme (
     val id: Int,
     val nom: String
 )

@@ -31,8 +31,22 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = this.findViewById(R.id.nav_view)
         navView.setupWithNavController(navController)
     }
+
     companion object {
-        const val API_URL = "https://seluapi.herokuapp.com"
+        //Variable du token de départ
         var TOKEN = ""
+
+        var VALIDE = false
+
+        const val API_URL = "https://seluapi.herokuapp.com"
+
+        //Regex pour le nom & le prénom
+        val REGEX_NOM_PRENOM = Regex("^[A-Za-z]+$")
+
+        //Regex pour l'adresse courriel
+        val REGEX_COURRIEL = Regex("^[A-Za-z0-9+_.-]+@(.+)\$")
+
+        //Regex pour le mot de passe (8 caractères, 1 majuscule, 1 minuscule, 1 chiffre)
+        val REGEX_MOT_DE_PASSE = Regex("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+\$).{8,}\$")
     }
 }

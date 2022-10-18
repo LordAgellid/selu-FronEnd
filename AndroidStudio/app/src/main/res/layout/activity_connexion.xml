@@ -1,16 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:Context=".ui.connexion.ConnexionActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Page de connexion"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/connexion_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/bienvenue"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/connexion_subheading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/connectez_vous_a_votre_compte"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connexion_headline" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/formulaire_connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/action_connexion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_connexion">
+
+        <Button
+            android:id="@+id/btn_connexion_google"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_rectangle_shape"
+            android:drawableLeft="@drawable/google_g_logo"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"
+            android:paddingRight="32dp"
+            android:paddingBottom="10dp"
+            android:text="@string/continuer_avec_google"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/line_or_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_connexion_google">
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/ou"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView14"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/adresse_courriel_input"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_rectangle_shape"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/inputs_icon"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:hint="@string/adresse_courriel"
+            android:importantForAutofill="no"
+            android:inputType="text|textEmailAddress"
+            android:letterSpacing="0.0005"
+            android:paddingLeft="16dp"
+            android:paddingTop="14dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="14dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary_light"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_or_line"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/mot_de_passe_input"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_rectangle_shape"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/inputs_icon"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:hint="@string/mot_de_passe_placeholder"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:letterSpacing="0.0005"
+            android:paddingLeft="16dp"
+            android:paddingTop="14dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="14dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:text=""
+            android:textAlignment="textStart"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary_light"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adresse_courriel_input"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/lien_vers_mdop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/mot_de_passe_oublie_connexion"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mot_de_passe_input" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/action_connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_connexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_rectangle_shape"
+            app:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:paddingLeft="55dp"
+            android:paddingTop="10dp"
+            android:paddingRight="55dp"
+            android:paddingBottom="10dp"
+            android:text="@string/connexion"
+            android:textColor="@color/primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <TextView
+            android:id="@+id/connexion_action_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/vous_n_avez_pas_de_compte_selu"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_connexion" />
+
+        <TextView
+            android:id="@+id/lien_vers_inscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/en_creer_un_maintenant"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connexion_action_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

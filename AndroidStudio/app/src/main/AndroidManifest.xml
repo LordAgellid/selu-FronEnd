@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Selu"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.connexion.ConnexionActivity"
+            android:theme="@style/Theme.App.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

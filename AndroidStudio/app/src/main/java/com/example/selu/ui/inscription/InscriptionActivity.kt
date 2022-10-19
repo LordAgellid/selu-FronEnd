@@ -46,6 +46,7 @@ class InscriptionActivity: AppCompatActivity() {
                 MainActivity.VALIDE = true
             } else {
                 prenomInput.error = "Veuillez entrer un prénom valide, il ne doit contenir que des lettres"
+                MainActivity.VALIDE = false
             }
             // -> Nom
             if (nomInput.text.isEmpty()) {
@@ -54,6 +55,7 @@ class InscriptionActivity: AppCompatActivity() {
                 MainActivity.VALIDE = true
             } else {
                 nomInput.error = "Veuillez entrer un nom valide, il ne doit contenir que des lettres"
+                MainActivity.VALIDE = false
             }
             // -> Courriel
             if (adresseCourrielInput.text.isEmpty()) {
@@ -62,18 +64,23 @@ class InscriptionActivity: AppCompatActivity() {
                 MainActivity.VALIDE = true
             } else {
                 adresseCourrielInput.error = "Veuillez entrer un courriel valide , il doit contenir un @ et un ."
+                MainActivity.VALIDE = false
             }
             // -> Mots de passe
             if (motDePasseInput1.text.isEmpty() || motDePasseInput2.text.isEmpty()) {
                 motDePasseInput1.error = "Veuillez entrer votre mot de passe"
                 motDePasseInput2.error = "Veuillez confirmer votre mot de passe"
+                MainActivity.VALIDE = false
+
             } else if (motDePasseInput1.text.toString() != motDePasseInput2.text.toString()) {
                 motDePasseInput1.error = "Les mots de passe ne correspondent pas"
                 motDePasseInput2.error = "Les mots de passe ne correspondent pas"
+                MainActivity.VALIDE = false
             } else if (MainActivity.REGEX_MOT_DE_PASSE.matches(motDePasseInput1.text)) {
                 MainActivity.VALIDE = true
             } else {
                 motDePasseInput1.error = "Veuillez entrer un mot de passe valide, il doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre"
+                MainActivity.VALIDE = false
             }
 
             //Validation & connexion

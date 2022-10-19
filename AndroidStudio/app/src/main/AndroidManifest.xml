@@ -37,6 +37,10 @@
         <activity
             android:name=".MdpOublier"
             android:exported="true"/>
+
+        <activity
+            android:name=".ProfilePage"
+            android:exported="true"/>
     </application>
 
 </manifest>

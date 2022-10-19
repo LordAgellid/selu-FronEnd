@@ -31,9 +31,15 @@
 
     <fragment
         android:id="@+id/navigation_user_profile"
-        android:name="com.example.selu.ui.profil.ProfilFragment"
+        android:name="com.example.selu.ui.profil.page1Profile.ProfilFragment"
         android:label="@string/title_user"
         tools:layout="@layout/fragment_profil" />
+
+    <fragment
+        android:id="@+id/navigation_edit_profile"
+        android:name="com.example.selu.ui.profil.page2Profile.Profil2Fragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_edit_profil" />
 
     <fragment
         android:id="@+id/mdop1"

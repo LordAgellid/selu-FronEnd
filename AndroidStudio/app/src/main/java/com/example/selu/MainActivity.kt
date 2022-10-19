@@ -1,7 +1,9 @@
 package com.example.selu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = this.findViewById(R.id.nav_view)
         navView.setupWithNavController(navController)
+
+
     }
 
     companion object {

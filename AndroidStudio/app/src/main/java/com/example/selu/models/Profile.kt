@@ -5,5 +5,5 @@ data class Profile (
     val Prenom : String,
     val NomDeFamille : String,
     val PhotoDeProfil : String,
-    val PhotoDeCouverture : String
+    val Courriel : String
 )

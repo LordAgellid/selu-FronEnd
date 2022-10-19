@@ -2,9 +2,7 @@ package com.example.selu.ui.mdop.page2
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -17,14 +15,14 @@ class Mdop2Fragment : Fragment(R.layout.fragment_mdop2) {
         fun onClick(view: View) {
             val thirdFragment = Mdop3Fragment()
             val transaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.bay, thirdFragment)
+            transaction.replace(R.id.mdpFrame, thirdFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
 
         fun retour() {
             val transaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.bay, Mdop1Fragment())
+            transaction.replace(R.id.mdpFrame, Mdop1Fragment())
             transaction.addToBackStack(null)
             transaction.commit()
         }

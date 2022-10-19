@@ -44,6 +44,14 @@ class ConnexionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
+        val motDePasseInput = findViewById<EditText>(R.id.mot_de_passe_input)
+
+
+
+        adresseCourrielInput.setText("salahfr@gmail.com")
+        motDePasseInput.setText("SalahYao123")
+
         //lien vers mdp oublié
         val mdpOublie = findViewById<TextView>(R.id.lien_vers_mdop)
         mdpOublie.setOnClickListener {
@@ -57,6 +65,7 @@ class ConnexionActivity : AppCompatActivity() {
             //Valeurs d'entrée
             val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
             val motDePasseInput = findViewById<EditText>(R.id.mot_de_passe_input)
+
 
             //Messages d'erreurs
             // -> Courriel

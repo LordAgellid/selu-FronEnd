@@ -15,7 +15,7 @@ class MdpOublier : AppCompatActivity() {
         val firstFragment = Mdop1Fragment()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.bay, firstFragment)
+            replace(R.id.mdpFrame, firstFragment)
             commit()
         }
 

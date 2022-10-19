@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.selu.MainActivity
+import com.example.selu.MdpOublier
 import com.example.selu.R
 
 class ConnexionActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class ConnexionActivity : AppCompatActivity() {
         //Thread.sleep(2500)
         val splashScreen = installSplashScreen()
 
-        setContentView(layout.activity_connexion)
+        setContentView(R.layout.activity_connexion)
         connexionViewModel = ViewModelProvider(this)[ConnexionViewModel::class.java]
 
         //Cacher l'action bar
@@ -44,18 +45,18 @@ class ConnexionActivity : AppCompatActivity() {
         }
 
         //lien vers mdp oublié
-        val mdpOublie = findViewById<TextView>(id.lien_vers_mdop)
+        val mdpOublie = findViewById<TextView>(R.id.lien_vers_mdop)
         mdpOublie.setOnClickListener {
             val intent = Intent(this, MdpOublier::class.java)
             startActivity(intent)
         }
 
         //Fonction de connexion
-        val btnConnexion = findViewById<Button>(id.btn_connexion)
+        val btnConnexion = findViewById<Button>(R.id.btn_connexion)
         btnConnexion.setOnClickListener {
             //Valeurs d'entrée
-            val adresseCourrielInput = findViewById<EditText>(id.adresse_courriel_input)
-            val motDePasseInput = findViewById<EditText>(id.mot_de_passe_input)
+            val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
+            val motDePasseInput = findViewById<EditText>(R.id.mot_de_passe_input)
 
             //Messages d'erreurs
             // -> Courriel

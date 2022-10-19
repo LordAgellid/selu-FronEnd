@@ -4,14 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.selu.MainActivity
 import com.example.selu.R
-import com.example.selu.ui.connexion.ConnexionViewModel
 
 class InscriptionActivity: AppCompatActivity() {
 
@@ -29,16 +28,16 @@ class InscriptionActivity: AppCompatActivity() {
             supportActionBar!!.hide()
         }
 
-        //button inscription
-        val prenomInput = findViewById<EditText>(R.id.prenom_input)
-        val nomInput = findViewById<EditText>(R.id.nom_input)
-        val courrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
-        val motDePasseInput1 = findViewById<EditText>(R.id.mot_de_passe_input)
-        val motDePasseInput2 = findViewById<EditText>(R.id.confirmation_mdop_input)
+        //Fonction de connexion
         val inscription = findViewById<Button>(R.id.btn_inscription)
-
-
         inscription.setOnClickListener {
+            //Valeurs d'entrée
+            val prenomInput = findViewById<EditText>(R.id.prenom_input)
+            val nomInput = findViewById<EditText>(R.id.nom_input)
+            val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
+            val motDePasseInput1 = findViewById<EditText>(R.id.mot_de_passe_input)
+            val motDePasseInput2 = findViewById<EditText>(R.id.confirmation_mdop_input)
+
             //Messages d'erreurs
             // -> Prénom
             if (prenomInput.text.isEmpty() ){
@@ -57,12 +56,12 @@ class InscriptionActivity: AppCompatActivity() {
                 nomInput.error = "Veuillez entrer un nom valide, il ne doit contenir que des lettres"
             }
             // -> Courriel
-            if (courrielInput.text.isEmpty()) {
-                courrielInput.error = "Veuillez entrer votre courriel"
-            }else if (MainActivity.REGEX_COURRIEL.matches(courrielInput.text)) {
+            if (adresseCourrielInput.text.isEmpty()) {
+                adresseCourrielInput.error = "Veuillez entrer votre courriel"
+            }else if (MainActivity.REGEX_COURRIEL.matches(adresseCourrielInput.text)) {
                 MainActivity.VALIDE = true
             } else {
-                courrielInput.error = "Veuillez entrer un courriel valide , il doit contenir un @ et un ."
+                adresseCourrielInput.error = "Veuillez entrer un courriel valide , il doit contenir un @ et un ."
             }
             // -> Mots de passe
             if (motDePasseInput1.text.isEmpty() || motDePasseInput2.text.isEmpty()) {
@@ -79,11 +78,15 @@ class InscriptionActivity: AppCompatActivity() {
 
             //Validation & connexion
             if (MainActivity.VALIDE) {
-                inscriptionViewModel.inscription(prenomInput.text.toString(), nomInput.text.toString(), courrielInput.text.toString(), motDePasseInput1.text.toString())
+                inscriptionViewModel.inscription(
+                    prenomInput.text.toString(),
+                    nomInput.text.toString(),
+                    adresseCourrielInput.text.toString(),
+                    motDePasseInput1.text.toString()
+                )
             }
 
         }
-
 
         inscriptionViewModel.IfSucesss.observe(this) {
             if (it) {
@@ -93,6 +96,13 @@ class InscriptionActivity: AppCompatActivity() {
             } else {
                 Toast.makeText(this, "ERREUR: Inscription échouée. Veuillez réessayer !", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        //Lien pour rediriger vers la page de connexion
+        val lienVersConnexion = findViewById<TextView>(R.id.lien_vers_connexion)
+        lienVersConnexion.setOnClickListener {
+            val intent = Intent(this, com.example.selu.ui.connexion.ConnexionActivity ::class.java)
+            startActivity(intent)
         }
     }
 }

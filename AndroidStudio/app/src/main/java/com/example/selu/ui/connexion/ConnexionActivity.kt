@@ -2,6 +2,7 @@ package com.example.selu.ui.connexion
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -9,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.selu.MainActivity
-import com.example.selu.MdpOublier
-import com.example.selu.R.*
+import com.example.selu.R
 
 class ConnexionActivity : AppCompatActivity() {
     private lateinit var connexionViewModel: ConnexionViewModel
@@ -33,7 +37,7 @@ class ConnexionActivity : AppCompatActivity() {
 
 
         //Lien pour rediriger vers l'inscription
-        val inscription = findViewById<TextView>(id.lien_vers_inscription)
+        val inscription = findViewById<TextView>(R.id.lien_vers_inscription)
         inscription.setOnClickListener {
             val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
             startActivity(intent)
@@ -81,9 +85,18 @@ class ConnexionActivity : AppCompatActivity() {
         //Vérificaiton de la connexion & redirection
         connexionViewModel.isValid.observe(this) {
             if(it == true) {
+                val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
+                MainActivity.EMAIL = adresseCourrielInput.text.toString()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        //Lien pour rediriger vers la page d'inscription
+        val lienVersInscription = findViewById<TextView>(R.id.lien_vers_inscription)
+        lienVersInscription.setOnClickListener {
+            val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
+            startActivity(intent)
         }
     }
 }

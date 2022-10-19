@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         const val API_URL = "https://seluapi.herokuapp.com"
 
+        var EMAIL = ""
+
         //Regex pour le nom & le prénom
         val REGEX_NOM_PRENOM = Regex("^[A-Za-z]+$")
 

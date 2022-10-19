@@ -7,10 +7,11 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.selu.MainActivity
-import com.example.selu.R
-import com.example.selu.databinding.ActivityConnexionBinding
+import com.example.selu.MdpOublier
+import com.example.selu.R.*
 
 class ConnexionActivity : AppCompatActivity() {
     private lateinit var connexionViewModel: ConnexionViewModel
@@ -19,10 +20,10 @@ class ConnexionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Écran de chargement
-        Thread.sleep(2500)
+        //Thread.sleep(2500)
         val splashScreen = installSplashScreen()
 
-        setContentView(R.layout.activity_connexion)
+        setContentView(layout.activity_connexion)
         connexionViewModel = ViewModelProvider(this)[ConnexionViewModel::class.java]
 
         //Cacher l'action bar
@@ -32,18 +33,25 @@ class ConnexionActivity : AppCompatActivity() {
 
 
         //Lien pour rediriger vers l'inscription
-        val inscription = findViewById<TextView>(R.id.lien_vers_inscription)
+        val inscription = findViewById<TextView>(id.lien_vers_inscription)
         inscription.setOnClickListener {
             val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
             startActivity(intent)
         }
 
+        //lien vers mdp oublié
+        val mdpOublie = findViewById<TextView>(id.lien_vers_mdop)
+        mdpOublie.setOnClickListener {
+            val intent = Intent(this, MdpOublier::class.java)
+            startActivity(intent)
+        }
+
         //Fonction de connexion
-        val btnConnexion = findViewById<Button>(R.id.btn_connexion)
+        val btnConnexion = findViewById<Button>(id.btn_connexion)
         btnConnexion.setOnClickListener {
             //Valeurs d'entrée
-            val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
-            val motDePasseInput = findViewById<EditText>(R.id.mot_de_passe_input)
+            val adresseCourrielInput = findViewById<EditText>(id.adresse_courriel_input)
+            val motDePasseInput = findViewById<EditText>(id.mot_de_passe_input)
 
             //Messages d'erreurs
             // -> Courriel

@@ -22,9 +22,16 @@
         <entry key="..\:/Users/kouna/Documents/GitLab/Selu/frontend/AndroidStudio/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3625" />
         <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/activity_connexion.xml" value="0.3625" />
         <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/activity_inscription.xml" value="0.3625" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_accueil.xml" value="0.3625" />
         <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_ajout_article.xml" value="0.3625" />
         <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_favoris.xml" value="0.3625" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_mdop1.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_mdop2.xml" value="0.25" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_mdop3.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/fragment_profil.xml" value="0.22604166666666667" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/mdp_activity.xml" value="0.225" />
+        <entry key="..\:/Users/narut/Documents/bay decole/projet relache/frontend/AndroidStudio/app/src/main/res/layout/mdp_main.xml" value="0.225" />
       </map>
     </option>
   </component>

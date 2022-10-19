@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_favorites,
                 R.id.navigation_add,
                 R.id.navigation_msg_notifs,
-                R.id.navigation_user_profile,
+                R.id.navigation_user_profile
             )
         )
         this.setupActionBarWithNavController(navController, appBarConfiguration)

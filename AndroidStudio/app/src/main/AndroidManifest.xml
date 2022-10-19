@@ -33,6 +33,10 @@
         <activity
             android:name=".ui.inscription.InscriptionActivity"
             android:exported="true"/>
+
+        <activity
+            android:name=".MdpOublier"
+            android:exported="true"/>
     </application>
 
 </manifest>

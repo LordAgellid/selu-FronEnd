@@ -73,6 +73,8 @@ class ConnexionActivity : AppCompatActivity() {
         //Vérificaiton de la connexion & redirection
         connexionViewModel.isValid.observe(this) {
             if(it == true) {
+                val adresseCourrielInput = findViewById<EditText>(R.id.adresse_courriel_input)
+                MainActivity.EMAIL = adresseCourrielInput.text.toString()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }

@@ -2,15 +2,19 @@ package com.example.selu.ui.connexion
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.selu.MainActivity
 import com.example.selu.R
-import com.example.selu.databinding.ActivityConnexionBinding
 
 class ConnexionActivity : AppCompatActivity() {
     private lateinit var connexionViewModel: ConnexionViewModel
@@ -19,7 +23,7 @@ class ConnexionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Écran de chargement
-        Thread.sleep(2500)
+        //Thread.sleep(2500)
         val splashScreen = installSplashScreen()
 
         setContentView(R.layout.activity_connexion)
@@ -30,12 +34,11 @@ class ConnexionActivity : AppCompatActivity() {
             supportActionBar!!.hide()
         }
 
-
-        //Lien pour rediriger vers l'inscription
-        val inscription = findViewById<TextView>(R.id.lien_vers_inscription)
-        inscription.setOnClickListener {
-            val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
-            startActivity(intent)
+        //Lien pour rediriger vers la page de modification de mot de passe
+        val lienVersMdop = findViewById<TextView>(R.id.lien_vers_mdop)
+        lienVersMdop.setOnClickListener {
+//            val intent = Intent(this, Mdop1Fragment.class)
+//            startActivity(intent)
         }
 
         //Fonction de connexion
@@ -78,6 +81,13 @@ class ConnexionActivity : AppCompatActivity() {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        //Lien pour rediriger vers la page d'inscription
+        val lienVersInscription = findViewById<TextView>(R.id.lien_vers_inscription)
+        lienVersInscription.setOnClickListener {
+            val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
+            startActivity(intent)
         }
     }
 }

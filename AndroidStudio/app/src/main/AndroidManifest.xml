@@ -29,6 +29,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".ui.inscription.InscriptionActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

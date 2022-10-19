@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +28,14 @@ class ConnexionActivity : AppCompatActivity() {
         //Cacher l'action bar
         if (supportActionBar != null) {
             supportActionBar!!.hide()
+        }
+
+
+        //Lien pour rediriger vers l'inscription
+        val inscription = findViewById<TextView>(R.id.lien_vers_inscription)
+        inscription.setOnClickListener {
+            val intent = Intent(this, com.example.selu.ui.inscription.InscriptionActivity::class.java)
+            startActivity(intent)
         }
 
         //Fonction de connexion
